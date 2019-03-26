@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Business Partners List",
+    "type": "array",
+    "items": {
+      "title": "Business Partner Item",
+      "type": "object",
+      "javaType": "com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.BusinessPartnerNamespace.BusinessPartner",
+      "required": ["BusinessPartner", "BusinessPartnerName"]
+    }
+}  

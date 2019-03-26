@@ -3,15 +3,15 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <name>cf-s4-spring - Integration Tests</name>
-    <description>cf-s4-spring - Integration Tests</description>
+    <name>cf-bp - Integration Tests</name>
+    <description>cf-bp - Integration Tests</description>
 
-    <artifactId>cf-s4-spring-integration-tests</artifactId>
+    <artifactId>cf-bp-integration-tests</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <parent>
         <groupId>com.i016095</groupId>
-        <artifactId>cf-s4-spring</artifactId>
+        <artifactId>cf-bp</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
@@ -43,7 +43,8 @@
     <dependencies>
         <dependency>
             <groupId>com.i016095</groupId>
-            <artifactId>cf-s4-spring-application</artifactId>
+            <artifactId>cf-bp-application</artifactId>
+            <classifier>classes</classifier>
             <version>1.0-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
@@ -53,6 +54,16 @@
             </exclusions>
         </dependency>
 
+        <dependency>
+            <groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+            <artifactId>scp-cf</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sap.cloud.s4hana</groupId>
+            <artifactId>s4hana-all</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>com.sap.cloud.s4hana</groupId>
             <artifactId>testutil</artifactId>
@@ -81,39 +92,56 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-test-autoconfigure</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.skyscreamer</groupId>
-            <artifactId>jsonassert</artifactId>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
             <scope>test</scope>
             <exclusions>
-                <!-- exclude android-json to avoid conflict with org.json:json -->
-                <!-- see also: https://github.com/spring-projects/spring-boot/issues/8706 -->
                 <exclusion>
-                    <groupId>com.vaadin.external.google</groupId>
-                    <artifactId>android-json</artifactId>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>arquillian-tomee-embedded</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>tomee-embedded</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-jdk14</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>tomee-jaxrs</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+         <dependency>
+             <groupId>io.rest-assured</groupId>
+             <artifactId>json-schema-validator</artifactId>
+              <version>3.0.3</version>
+             <scope>test</scope>
+        </dependency>
+        
     </dependencies>
 
     <build>

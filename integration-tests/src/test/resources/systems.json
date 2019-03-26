@@ -1,0 +1,12 @@
+{
+    "erp": {
+      "default": "ERP",
+      "systems": [
+        {
+          "alias": "ERP",
+          "uri": "https://vhcals4hci.dummy.nodomain:44300"
+        }
+      ]
+    }
+  }
+  
